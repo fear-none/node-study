@@ -13,14 +13,18 @@
   <!-- 공통된 요소 -->
   <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">Logo</a>
-      <a href="/write">글 작성</a>
+      <a class="navbar-brand" href="/">
+        Express Blog
+      </a>
+      <a href="/write" class="btn">글 작성</a>
     </div>
   </nav>
 
   <!-- 바뀌는 요소 -->
-  {% block content %}
-  {% endblock %}
+  <div class="container p-4">
+    {% block content %}
+    {% endblock %}
+  </div>
 
   <!-- 공통된 요소 -->
   <div class="container">
@@ -33,14 +37,6 @@
           <use xlink:href="#bootstrap"></use>
         </svg>
       </a>
-
-      <ul class="nav col-md-4 justify-content-end">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-      </ul>
     </footer>
   </div>
 
