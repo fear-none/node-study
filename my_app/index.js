@@ -99,8 +99,36 @@ app.get("/detail/:id", async (req, res) => {
   // res.render("detail");
 });
 
-app.post("/edit", (req, res) => {
-  res.render("detail");
+app.get("/edit/:id", async (req, res) => {
+  const id = req.params.id;
+
+  const edit = await Writing.findOne({ _id: id })
+    .then((result) => {
+      res.render("detail", { edit: result });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+
+app.post("/edit/:id", async (req, res) => {
+  const id = req.params.id;
+  const title = req.body.title;
+  const contents = req.body.contents;
+
+  const edit = await Writing.replaceOne(
+    { _id: id },
+    { title: title, contents: contents }
+  )
+    .then((result) => {
+      console.log("update success");
+      res.render("detail", {
+        detail: { id: id, title: title, contents: contents },
+      });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 });
 
 app.listen(3000, () => {
