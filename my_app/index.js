@@ -1,11 +1,13 @@
-import { createServer } from "http";
+import express from "express";
 
-const server = createServer((req, res) => {
-  res.writeHead(200, { "Content-Type": "text/plain" });
-  res.write("Hello index.js");
-  res.end();
+const app = express();
+
+// middleware
+// main page GET
+app.get("/", (req, res) => {
+  res.send("Main page GET request");
 });
 
-server.listen(3000, () => {
-  console.log("Server is listening on port 3000");
+app.listen(3000, () => {
+  console.log("Server is running");
 });
